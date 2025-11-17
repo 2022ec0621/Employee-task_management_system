@@ -27,36 +27,59 @@ This system allows:
 ---
 
 
-# 📁 Folder Structure
-
 Employee-task-management-system/
 │
-├── backend/
-│ ├── server.js
-│ ├── db.js
-│ ├── routes/
-│ │ ├── employees.js
-│ │ ├── tasks.js
-│ │ └── auth.js
-│ ├── controllers/
-│ ├── package.json
-│ ├── README.md
+backend/
+│
+├── app/
+│   ├── db/
+│   │   └── migration.sql
+│   │
+│   ├── middleware/
+│   │   └── auth.js
+│   │
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── employees.js
+│   │   └── tasks.js
+│
+├── node_modules/
+│
+├── .env
+├── app.http
+├── db.js
+├── index.js
+├── package.json
+└── package-lock.json
+|
 │
 ├── frontend/
-│ ├── src/
-│ │ ├── App.jsx
-│ │ ├── api.js
-│ │ ├── hooks/
-│ │ ├── components/
-│ │ │ ├── employees/
-│ │ │ ├── tasks/
-│ │ │ ├── auth/
-│ │ │ └── layout/
-│ ├── public/
-│ ├── index.html
-│ ├── package.json
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── api.js
+│   │   ├── index.css
+│   │   ├── contexts/
+│   │   │   └── AuthContext.jsx
+│   │   ├── components/
+│   │   │   ├── Layout/
+│   │   │   │   └── Header.jsx
+│   │   │   ├── Employees/
+│   │   │   │   ├── EmployeeList.jsx
+│   │   │   │   └── EmployeeForm.jsx
+│   │   │   ├── Tasks/
+│   │   │   │   ├── TaskList.jsx
+│   │   │   │   └── TaskForm.jsx
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   └── Register.jsx
+│   ├── public/
+│   ├── index.html
+│   ├── tailwind.config.cjs
+│   └── package.json
+│   
 │
-└── README.md
+└── README.md  (root)
 
 
 
@@ -201,4 +224,5 @@ pavithra.mannar@prou.com.au
 
 🎉 Final Notes
 This project was built as a full solution covering Frontend, Backend, and Fullstack tracks for the ProU Technology assessment.
+
 
