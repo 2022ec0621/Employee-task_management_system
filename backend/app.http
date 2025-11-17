@@ -1,0 +1,31 @@
+### Check if server is running
+GET http://localhost:5000/
+{
+  "message": "Employee-Task API"
+}
+### Get all employees
+GET http://localhost:5000/api/employees
+
+POST http://localhost:5000/api/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "role": "Developer"
+}
+
+
+GET http://localhost:5000/api/employees/1
+
+
+PUT http://localhost:5000/api/employees/1
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "john@example.com",
+  "role": "Senior Developer"
+}
+
+GET http://localhost:5000/api/tasks
