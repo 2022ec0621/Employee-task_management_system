@@ -58,7 +58,7 @@ Employee-task-management-system/
 │
 └── README.md
 
-yaml
+
 
 
 # 🧪 API Documentation
@@ -122,57 +122,67 @@ PORT=5000
 DATABASE_URL=postgres://user:pass@host/dbname
 JWT_SECRET=your_secret
 
-markdown
-Copy code
+
 
 ### **Frontend `.env`**
 VITE_API_URL=https://employee-task-management-system-backend.onrender.com
 
-yaml
-Copy code
+
 
 ---
 
 # 🖥 Local Setup
 
 ### **1️⃣ Clone**
-```bash
+
 git clone https://github.com/2022ec0621/Employee-task_management_system.git
 🔧 Backend Setup
-bash
-Copy code
+
+
 cd backend
 npm install
 npm start
 Backend runs at:
 
-arduino
-Copy code
+
+
 http://localhost:5000
 🎨 Frontend Setup
-bash
-Copy code
+
 cd frontend
 npm install
 npm run dev
 Frontend runs at:
 
-arduino
-Copy code
+
 http://localhost:5173
 🖼 Screenshots
 (Add your images here)
 
 Example:
+📌 Login Page
+<img width="1363" height="657" alt="image" src="https://github.com/user-attachments/assets/0d069fd2-03c5-42a6-be85-e93aa56d5052" />
 
-scss
-Copy code
-📌 Home Page
-![Home](./screenshots/home.png)
+📌 Register Page
+<img width="1359" height="653" alt="image" src="https://github.com/user-attachments/assets/41fb17d1-1b43-4410-812f-747046149b1b" />
+
+📌 Employee List
+<img width="1343" height="612" alt="image" src="https://github.com/user-attachments/assets/5b75f5bf-a9cb-45df-bd38-ccd58dd2690f" />
 
 📌 Task List
-![Tasks](./screenshots/tasks.png)
+<img width="1340" height="650" alt="image" src="https://github.com/user-attachments/assets/dd93b671-aeab-4f21-bf7f-62f50adf25b4" />
+
+📌 Employee Form
+<img width="1349" height="644" alt="image" src="https://github.com/user-attachments/assets/efa14d47-2b99-4cc8-90bf-42958d204fed" />
+
+
+📌 Task Form
+<img width="1334" height="643" alt="image" src="https://github.com/user-attachments/assets/774963bd-65ee-4346-8d84-0c12b4f74a1e" />
+
+
+
 ⭐ Bonus Features Implemented
+
 ✔ Full authentication (register + login + protected APIs)
 ✔ Fullstack integration
 ✔ PostgreSQL UUID primary keys
@@ -181,8 +191,9 @@ Copy code
 ✔ Deployed backend & frontend
 ✔ Clean professional UI
 
+
 📧 Submission / Contact
-Email (as per instructions):
+Email :
 
 vasudharini.s@prou.com.au
 
@@ -190,3 +201,4 @@ pavithra.mannar@prou.com.au
 
 🎉 Final Notes
 This project was built as a full solution covering Frontend, Backend, and Fullstack tracks for the ProU Technology assessment.
+
