@@ -1,7 +1,11 @@
-import path from 'node:path'
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import path from "node:path"; 
+import authRoutes from "./routes/auth.js";
+import employeeRoutes from "./routes/employees.js";
+import taskRoutes from "./routes/tasks.js";
 
-const express = require("express");
-const cors = require("cors");
 require("dotenv").config();
 
 const authRoutes = require("./routes/auth");
