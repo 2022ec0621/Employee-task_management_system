@@ -1,3 +1,5 @@
+import path from './path'
+
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -11,6 +13,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", 'dist', 'index.html'));
+})
 // API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeeRoutes);
@@ -26,6 +33,8 @@ app.use((err, req, res, next) => {
   console.error("SERVER ERROR:", err);
   res.status(err.status || 500).json({ error: err.message || "Server error" });
 });
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
