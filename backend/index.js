@@ -1,32 +1,53 @@
+// backend/index.js
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
-import path from "node:path"; 
+import path from "node:path";
+import dotenv from "dotenv";
+
 import authRoutes from "./routes/auth.js";
 import employeeRoutes from "./routes/employees.js";
 import taskRoutes from "./routes/tasks.js";
-import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // parses application/json
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
-// API routes
+// --- API routes (mount before static/catch-all) ---
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeeRoutes);
 app.use("/api/tasks", taskRoutes);
 
-// Root route
-app.get("/", (req, res) => {
-  res.json({ message: "Employee Task Management API" });
+// Optional health check or root API route
+app.get("/api/health", (req, res) =>
+  res.json({ status: "ok", service: "Employee Task Management API" })
+);
+
+// --- Static frontend serving (if you built the frontend) ---
+// Resolve project root and point to frontend build
+const __dirname = path.resolve();
+const clientDist = path.join(__dirname, "frontend", "dist");
+
+// serve static assets if folder exists
+app.use(express.static(clientDist));
+
+// Catch-all: send index.html for client-side routing
+// Use '/*' or '/' (NOT '*')
+app.get("/", (req, res, next) => {
+  // If it's an API request, skip and let the API routes handle it
+  if (req.path.startsWith("/api/")) return next();
+
+  // Otherwise, serve index.html (if exists)
+  const indexHtml = path.join(clientDist, "index.html");
+  return res.sendFile(indexHtml, (err) => {
+    if (err) {
+      // If index.html not found, fallback with a small JSON response
+      console.warn("index.html not found at", indexHtml);
+      return res.status(200).json({ message: "Employee Task Management API" });
+    }
+  });
 });
 
 // Global error handler
